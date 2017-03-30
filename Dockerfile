@@ -8,7 +8,7 @@ RUN apt-get update \
 
 COPY krb5.conf /root/
 COPY ssh_config /etc/ssh/
-RUN chmod 644 /etc/ssh/ssh_config 
 
-RUN export KRB5_CONFIG=~/root/krb5.conf
-
+RUN chmod 644 /etc/ssh/ssh_config
+RUN export KRB5_CONFIG=/root/krb5.conf \
+ && rm /root/krb5.conf
